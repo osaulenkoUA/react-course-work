@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import {GameModel} from "./model";
+import {GameView} from "./view";
+import {GamePresenter} from "./presenter";
+import {gamesStates} from "./gameStates";
 
 function App() {
+
+
+useEffect(()=>{
+    const gameModel = new GameModel(gamesStates);
+    const gameView = new GameView();
+    const gamePresenter = new GamePresenter(gameModel, gameView);
+
+    gamePresenter.startGame();
+},[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p id="text"></p>
+      <div id="options"></div>
     </div>
   );
 }
