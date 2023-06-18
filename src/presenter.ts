@@ -1,18 +1,20 @@
 import {IGameView, IOption} from "./interfaces";
 import {GameModel} from "./model";
+import {EventDispatcher} from "./dispatcher";
 
 export class GamePresenter {
     private readonly model: GameModel;
-    private view: IGameView;
+    private readonly view: IGameView;
+    private eventDispatcher: EventDispatcher;
 
-    constructor(model: GameModel, view: IGameView) {
+    constructor(model: GameModel, view: IGameView,eventDispatcher: EventDispatcher) {
         this.model = model;
         this.view = view;
+        this.eventDispatcher = eventDispatcher;
+
     }
 
     startGame(): void {
-        console.log(this.view)
-        console.log(this.model)
         this.view.clearOptions()
         const state = this.model.findStateById(0);
         this.view.displayGameState(state);
@@ -25,6 +27,7 @@ export class GamePresenter {
     handleOptionSelection(option: IOption): void {
 
         this.model.selectOption(option);
+
         const nextState = this.model.findStateById(option.nextId);
 
         if (nextState) {
