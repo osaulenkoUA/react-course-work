@@ -1,4 +1,4 @@
-import {IGameState, IOption} from "./interfaces";
+import {IGameState, IOption} from "../interfaces";
 
 class Bag {
     private objects: Set<string>;

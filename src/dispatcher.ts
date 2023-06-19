@@ -1,4 +1,4 @@
-import {GamePresenter} from "./presenter";
+import {GamePresenter} from "./presenter/presenter";
 import {IEventObserver, OptionSelectionEvent} from "./interfaces";
 
 export class OptionSelectionEventObserver implements IEventObserver {

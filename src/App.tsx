@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import './App.css';
-import {GameModel} from "./model";
-import {GameView} from "./view";
-import {GamePresenter} from "./presenter";
-import {gamesStates} from "./gameStates";
+import './styles/App.css';
+import {GameModel} from "./model/model";
+import {GameView} from "./view/view";
+import {GamePresenter} from "./presenter/presenter";
+import {gamesStates} from "./data/gameStates";
 import {EventDispatcher, OptionSelectionEventObserver} from "./dispatcher";
 
 function App() {

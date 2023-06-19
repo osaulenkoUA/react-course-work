@@ -1,0 +1,28 @@
+.App{
+/*display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+p{
+    border: 1px solid black;
+    font-size: 18px;
+    padding: 30px;
+    padding-top: 10px;
+}
+
+button{
+    /*max-width: 30%;*/
+    font-size: 18px;
+border-radius: 20%;
+    color: white;
+    border: none;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: brown;
+}

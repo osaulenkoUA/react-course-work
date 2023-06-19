@@ -1,6 +1,6 @@
-import {IGameView, IOption} from "./interfaces";
-import {GameModel} from "./model";
-import {EventDispatcher} from "./dispatcher";
+import {IGameView, IOption} from "../interfaces";
+import {GameModel} from "../model/model";
+import {EventDispatcher} from "../dispatcher";
 
 export class GamePresenter {
     private readonly model: GameModel;
