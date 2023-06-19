@@ -1,5 +1,5 @@
 import {IGameState, IGameView, IOption, OptionSelectionEvent} from "../interfaces";
-import {EventDispatcher} from "../dispatcher";
+import {EventDispatcher} from "../eventDispatcher";
 
 export class GameView implements IGameView {
     private readonly textElement: HTMLElement | null;

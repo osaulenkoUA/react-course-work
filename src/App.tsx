@@ -4,29 +4,30 @@ import {GameModel} from "./model/model";
 import {GameView} from "./view/view";
 import {GamePresenter} from "./presenter/presenter";
 import {gamesStates} from "./data/gameStates";
-import {EventDispatcher, OptionSelectionEventObserver} from "./dispatcher";
+import {EventDispatcher} from "./eventDispatcher";
+import {OptionSelectionEventObserver} from './observers'
 
 function App() {
 
 
-useEffect(()=>{
-    const gameModel = new GameModel(gamesStates);
-    const eventDispatcher = new EventDispatcher();
-    const gameView = new GameView(eventDispatcher);
-    const gamePresenter = new GamePresenter(gameModel, gameView,eventDispatcher);
+    useEffect(() => {
+        const gameModel = new GameModel(gamesStates);
+        const eventDispatcher = new EventDispatcher();
+        const gameView = new GameView(eventDispatcher);
+        const gamePresenter = new GamePresenter(gameModel, gameView, eventDispatcher);
 
-    const optionSelectionObserver = new OptionSelectionEventObserver(gamePresenter);
-    eventDispatcher.addObserver(optionSelectionObserver);
+        const optionSelectionObserver = new OptionSelectionEventObserver(gamePresenter);
+        eventDispatcher.addObserver(optionSelectionObserver);
 
-    gamePresenter.startGame();
-},[])
+        gamePresenter.startGame();
+    }, [])
 
-  return (
-    <div className="App">
-      <p id="text"></p>
-      <div id="options"></div>
-    </div>
-  );
+    return (
+        <div className="App">
+            <p id="text"></p>
+            <div id="options"></div>
+        </div>
+    );
 }
 
 export default App;

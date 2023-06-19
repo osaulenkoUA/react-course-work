@@ -1,17 +1,4 @@
-import {GamePresenter} from "./presenter/presenter";
 import {IEventObserver, OptionSelectionEvent} from "./interfaces";
-
-export class OptionSelectionEventObserver implements IEventObserver {
-    private readonly presenter: GamePresenter;
-
-    constructor(presenter: GamePresenter) {
-        this.presenter = presenter;
-    }
-
-    update(event: OptionSelectionEvent): void {
-        this.presenter.handleOptionSelection(event.option);
-    }
-}
 
 export class EventDispatcher {
     private readonly observers: IEventObserver[];
