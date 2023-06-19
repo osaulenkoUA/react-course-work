@@ -21,3 +21,11 @@ export interface IGameView {
 
     clearOptions(): void;
 }
+
+export interface OptionSelectionEvent {
+    option: IOption;
+}
+
+export interface IEventObserver {
+    update(event: OptionSelectionEvent): void;
+}

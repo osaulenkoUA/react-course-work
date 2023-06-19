@@ -4,14 +4,19 @@ import {GameModel} from "./model";
 import {GameView} from "./view";
 import {GamePresenter} from "./presenter";
 import {gamesStates} from "./gameStates";
+import {EventDispatcher, OptionSelectionEventObserver} from "./dispatcher";
 
 function App() {
 
 
 useEffect(()=>{
     const gameModel = new GameModel(gamesStates);
-    const gameView = new GameView();
-    const gamePresenter = new GamePresenter(gameModel, gameView);
+    const eventDispatcher = new EventDispatcher();
+    const gameView = new GameView(eventDispatcher);
+    const gamePresenter = new GamePresenter(gameModel, gameView,eventDispatcher);
+
+    const optionSelectionObserver = new OptionSelectionEventObserver(gamePresenter);
+    eventDispatcher.addObserver(optionSelectionObserver);
 
     gamePresenter.startGame();
 },[])

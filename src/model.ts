@@ -10,6 +10,7 @@ class Bag {
     addToBag(val: string): void {
         this.objects.add(val);
     }
+
     removeFromBag(val: string): void {
         this.objects.delete(val);
     }
@@ -17,6 +18,11 @@ class Bag {
     hasInBag(sub: string): boolean {
         return this.objects.has(sub);
     }
+
+    clearBag() {
+        this.objects = new Set()
+    }
+
 }
 
 export class GameModel {
@@ -47,5 +53,6 @@ export class GameModel {
 
     selectOption(option: IOption): void {
         option?.state && this.bag.addToBag(option?.state);
+        option.nextId===0 && this.bag.clearBag()
     }
 }
